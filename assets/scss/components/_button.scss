@@ -6,11 +6,13 @@
         width: 125px;
         height: 125px;
         font-size: 5rem;
+        border-radius: 10px;
         cursor: pointer;
 
         &[data-figure="x"] {
             color: u.$text-secondary;
             background-color: u.$bg-primary;
+            text-shadow: 0 0 15px u.$text-secondary;
             
             &::before {
                 content: attr(data-figure);
@@ -20,6 +22,7 @@
         &[data-figure="o"] {
             color: u.$text-terciary;
             background-color: u.$bg-primary;
+            text-shadow: 0 0 15px u.$text-terciary;
 
             &::before {
                 content: attr(data-figure);
