@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tick Tac Toe</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+<body>
+    <div class="game">
+        <div class="game__container">
+            <div class="bar">
+                <div class="bar__options">
+                    <span class="bar__option bar__option--x">x</span>
+                    <span class="bar__option bar__option--o">o</span>
+                </div>
+                <span class="bar__turn">
+                    <span class="bar__turn--select">X</span>
+                    turn
+                </span>
+                <button class="bar__button">
+                    <i class="fa-solid fa-rotate-right"></i>
+                </button>
+            </div>
+            <div class="game__table">
+                <button class="button--game" data-figure="x"></button>
+                <button class="button--game" data-figure="o"></button>
+                <button class="button--game"></button>
+                <button class="button--game"></button>
+                <button class="button--game"></button>
+                <button class="button--game"></button>
+                <button class="button--game"></button>
+                <button class="button--game"></button>
+                <button class="button--game"></button>
+            </div>
+            <div class="game__scores">
+                <span class="score score--green">
+                    <p class="score__title">x(player1)</p>
+                    <strong class="score__point">0</strong>
+                </span>
+                <span class="score score--white">
+                    <p class="score__title">ties</p>
+                    <strong class="score__point">0</strong>
+                </span>
+                <span class="score score--yellow">
+                    <p class="score__title">o(player2)</p>
+                    <strong class="score__point">0</strong>
+                </span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
