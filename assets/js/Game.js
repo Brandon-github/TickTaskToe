@@ -35,9 +35,19 @@ class Game {
             });
         }
 
+        this.buttonReset.addEventListener('click', ()=> this.reset());
 
     }
 
+    reset() {
+        this.buttonGame.forEach(button => {
+            button.removeAttribute("data-figure");
+            button.removeAttribute("disabled");
+        });
+
+        this.turn = this.turns[0];
+        this.playerTurn.textContent = this.turn;
+    }
 }
 
 const game = new Game();
