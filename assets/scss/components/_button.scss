@@ -16,6 +16,7 @@
             
             &::before {
                 content: attr(data-figure);
+                pointer-events: attr(disabled);
             }
         }
 
@@ -26,6 +27,7 @@
 
             &::before {
                 content: attr(data-figure);
+                pointer-events: attr(disabled);
             }
         }
     }
