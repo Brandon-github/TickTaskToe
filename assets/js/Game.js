@@ -55,7 +55,7 @@ class Game {
             });
         }
 
-        this.buttonReset.addEventListener('click', ()=> this.reset());
+        this.buttonReset.addEventListener('click', ()=> this.clear());
         this.modalButtonNext.addEventListener('click', () => {
             this.modal.classList.remove('active');
             this.modalSheet.classList.remove('active');
