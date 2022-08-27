@@ -1,0 +1,31 @@
+@use '../util' as u;
+ 
+.button {
+    &--game {
+        background-color: u.$bg-black;
+        width: 125px;
+        height: 125px;
+        font-size: 5rem;
+        cursor: pointer;
+
+        &[data-figure="x"] {
+            color: u.$text-secondary;
+            background-color: u.$bg-primary;
+            
+            &::before {
+                content: attr(data-figure);
+            }
+        }
+
+        &[data-figure="o"] {
+            color: u.$text-terciary;
+            background-color: u.$bg-primary;
+
+            &::before {
+                content: attr(data-figure);
+            }
+        }
+    }
+
+
+}
