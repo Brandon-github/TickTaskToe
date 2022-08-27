@@ -1,6 +1,14 @@
 @use '../util' as u;
  
 .button {
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: .3s linear;
+
     &--game {
         background-color: u.$bg-black;
         width: 125px;
@@ -32,5 +40,22 @@
         }
     }
 
+    &--yellow {
+        background-color: u.$bg-terciary;
+        color: u.$text-primary;
+
+        &:hover {
+            filter: drop-shadow(0 0 5px u.$bg-terciary);
+        }
+    }
+
+    &--white {
+        background-color: u.$bg-white;
+        color: u.$text-primary;
+
+        &:hover {
+            filter: drop-shadow(0 0 5px u.$bg-white);
+        }
+    }
 
 }
