@@ -6,7 +6,6 @@
     left: 0;
     transform: translateY(-50%);
     background-color: u.$bg-black;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     width: 100%;
     height: 250px;
     display: flex;
@@ -15,6 +14,7 @@
     opacity: 0;
     visibility: hidden;
     transition: .1s ease-in;
+    z-index: 10;
 
     &.active {
         opacity: 1;
@@ -53,6 +53,7 @@
             align-items: center;
             gap: 15px;
             text-transform: uppercase;
+            transition: .3s linear;
 
             .modal__figure {
                 font-size: 5rem;
@@ -69,5 +70,23 @@
             display: flex;
             gap: 40px;
         }
+    }
+}
+
+/* Modal Sheet */
+.modal__sheet {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    visibility: hidden;
+    transition: .2s ease-in;
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
     }
 }
