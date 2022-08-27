@@ -21,10 +21,14 @@ class Game {
         this.modal = document.querySelector('.modal');
         this.modalTitle = this.modal.querySelector('.modal__title');
         this.modalFigure = this.modal.querySelector('.modal__figure');
+        this.modalButtonNext = this.modal.querySelector('.modal__button-next');
+        this.modalButtonQuit = this.modal.querySelector('.modal__button-quit');
+        this.modalSheet = document.querySelector('.modal__sheet');
     }
 
     init() {
         this.start();
+
     }
 
     start() {
@@ -52,6 +56,16 @@ class Game {
         }
 
         this.buttonReset.addEventListener('click', ()=> this.reset());
+        this.modalButtonNext.addEventListener('click', () => {
+            this.modal.classList.remove('active');
+            this.modalSheet.classList.remove('active');
+            this.clear();
+        });
+        this.modalButtonQuit.addEventListener('click', () => {
+            this.modal.classList.remove('active');
+            this.modalSheet.classList.remove('active');
+            this.reset();
+        })
 
     }
 
@@ -60,6 +74,12 @@ class Game {
 
         this.turn = this.turns[0];
         this.playerTurn.textContent = this.turn;
+        this.score.player1 = 0;
+        this.scoreElement.player1.textContent = this.score.player1;
+        this.score.player2 = 0;
+        this.scoreElement.player2.textContent = this.score.player2;
+        this.score.ties = 0;
+        this.scoreElement.ties.textContent = this.score.ties;
     }
 
     clear() {
@@ -84,6 +104,19 @@ class Game {
             this.modal.classList.add('active');
             this.modalTitle.setAttribute("data-color", this.turns[turn]);
             this.modalFigure.textContent = this.turns[turn];
+            this.modalSheet.classList.add('active');
+
+            if (this.turns[turn] === this.turns[0]) {
+                this.score.player1++;
+                this.scoreElement.player1.textContent = this.score.player1;
+                this.turn = this.turns[turn + 1];
+                this.playerTurn.textContent = this.turns[turn + 1];
+            } else if (this.turns[turn] === this.turns[1]) {
+                this.score.player2++;
+                this.scoreElement.player2.textContent = this.score.player2;
+                this.turn = this.turns[turn - 1];
+                this.playerTurn.textContent = this.turns[turn - 1];
+            }
         }
     }
 
