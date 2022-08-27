@@ -4,14 +4,23 @@ class Game {
         this.buttonGame = document.querySelectorAll('.button--game');
         this.buttonReset = document.querySelector('.bar__button');
         this.playerTurn = document.querySelector('.bar__turn--select');
-        this.score = {
+        this.scoreElement = {
             player1: document.querySelector('.score__point.player1'),
             player2: document.querySelector('.score__point.player2'),
             ties: document.querySelector('.score__point.ties')
         };
+        this.score = {
+            player1: 0,
+            player2: 0,
+            ties: 0
+        }
         this.turns = ["x", "o"];
         this.turn = "x";
         this.gameOver = false;
+
+        this.modal = document.querySelector('.modal');
+        this.modalTitle = this.modal.querySelector('.modal__title');
+        this.modalFigure = this.modal.querySelector('.modal__figure');
     }
 
     init() {
@@ -30,12 +39,14 @@ class Game {
                     button.setAttribute("disabled", "none");
 
                     console.log(button.getAttribute("data-figure"));
-                    this.validButtons();
+                    
                     
                     if (this.turn === this.turns[0]) this.turn = this.turns[1];
                     else this.turn = this.turns[0];
     
                     this.playerTurn.textContent = this.turn;
+
+                    this.validButtons();
                 });
             });
         }
@@ -64,8 +75,15 @@ class Game {
 
     #validation(point1, point2, point3, turn) {
         // Obtener valor de boton
-        if (this.#getButtonValue(point1) === this.turns[turn] && this.#getButtonValue(point2) === this.turns[turn] && this.#getButtonValue(point3) === this.turns[turn]) {
-            alert("Player Won " + this.turns[turn]);
+        if (
+            this.#getButtonValue(point1) === this.turns[turn] && 
+            this.#getButtonValue(point2) === this.turns[turn] && 
+            this.#getButtonValue(point3) === this.turns[turn]
+        ) {
+
+            this.modal.classList.add('active');
+            this.modalTitle.setAttribute("data-color", this.turns[turn]);
+            this.modalFigure.textContent = this.turns[turn];
         }
     }
 
