@@ -90,3 +90,19 @@
         visibility: visible;
     }
 }
+
+@media screen and (max-width: 600px) {
+    .modal {
+        .modal__content {
+            .modal__title {
+                .modal__figure {
+                    font-size: 4rem;
+                }
+
+                .modal__message {
+                    font-size: 2.5rem;
+                }
+            }
+        }
+    }
+}
