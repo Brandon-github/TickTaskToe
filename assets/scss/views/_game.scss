@@ -66,10 +66,9 @@
         }
 
         .game__table {
-            width: 400px;
-            height: fit-content;
-            display: flex;
-            flex-wrap: wrap;
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 12px;
             margin-top: 20px;
         }
@@ -110,6 +109,15 @@
                     background-color: u.$bg-terciary;
                 }
             }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .game {
+        &__container {
+            width: 90%;
+            height: fit-content;
         }
     }
 }
