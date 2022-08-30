@@ -41,9 +41,6 @@ class Game {
                 button.addEventListener('click', () => {
                     button.setAttribute("data-figure", this.turn);
                     button.setAttribute("disabled", "none");
-
-                    console.log(button.getAttribute("data-figure"));
-                    
                     
                     if (this.turn === this.turns[0]) this.turn = this.turns[1];
                     else this.turn = this.turns[0];
