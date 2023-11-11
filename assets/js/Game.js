@@ -33,6 +33,15 @@ class Game {
 
     }
 
+    #activeConfetti() {
+        let canvas = document.createElement('canvas')
+        canvas.width = window.innerWidth
+        canvas.height = window.innerHeight
+        this.modalSheet.appendChild(canvas)
+        const confetti_element = confetti.create(canvas)
+        confetti_element({ particleCount: 200 }).then(() => this.modalSheet.removeChild(canvas))
+    }
+
     start() {
         if (!this.gameOver) {
             this.playerTurn.textContent = this.turn;
@@ -117,6 +126,8 @@ class Game {
                 this.turn = this.turns[turn - 1];
                 this.playerTurn.textContent = this.turns[turn - 1];
             }
+
+            this.#activeConfetti()
         }     
     }
 
@@ -138,6 +149,8 @@ class Game {
                 this.turn = this.turns[turn - 1];
                 this.playerTurn.textContent = this.turns[turn - 1];
             }
+
+            this.#activeConfetti()
 
         }
 
