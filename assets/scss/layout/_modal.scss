@@ -31,6 +31,11 @@
                     color: u.$text-terciary;
                     text-shadow: 0 0 10px u.$text-terciary;
                 }
+
+                &[data-color="draw"] {
+                    color: u.$text-white;
+                    text-shadow: 0 0 10px u.$text-white;
+                }
             }
         }
     }

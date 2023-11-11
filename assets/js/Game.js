@@ -14,6 +14,7 @@ class Game {
             player2: 0,
             ties: 0
         }
+        this.passed = [];
         this.turns = ["x", "o"];
         this.turn = "x";
         this.gameOver = false;
@@ -27,6 +28,7 @@ class Game {
     }
 
     init() {
+        this.turn = this.turns[Math.floor(Math.random() * this.turns.length)]
         this.start();
 
     }
@@ -48,6 +50,7 @@ class Game {
                     this.playerTurn.textContent = this.turn;
 
                     this.validButtons();
+                    this.validateDraw();
                 });
             });
         }
@@ -114,7 +117,32 @@ class Game {
                 this.turn = this.turns[turn - 1];
                 this.playerTurn.textContent = this.turns[turn - 1];
             }
+        }     
+    }
+
+    validateDraw() {
+
+        if (Array.from(this.buttonGame).every(button => button.hasAttribute('data-figure'))) {
+            this.modal.classList.add('active');
+            this.modalTitle.setAttribute("data-color", "draw");
+            this.modalFigure.textContent = "-";
+            this.modalSheet.classList.add('active');
+
+            this.score.ties++;
+            this.scoreElement.ties.textContent = this.score.ties;
+
+            if (this.turns[turn] === this.turns[0]) {
+                this.turn = this.turns[turn + 1];
+                this.playerTurn.textContent = this.turns[turn + 1];
+            } else if (this.turns[turn] === this.turns[1]) {
+                this.turn = this.turns[turn - 1];
+                this.playerTurn.textContent = this.turns[turn - 1];
+            }
+
         }
+
+        // validar si todos los elementos no son nulos
+
     }
 
     validButtons() {
@@ -153,6 +181,7 @@ class Game {
         this.#validation(2, 4, 6, 1);
         this.#validation(3, 4, 5, 1);
         this.#validation(1, 4, 7, 1);
+
     }
 }
 
